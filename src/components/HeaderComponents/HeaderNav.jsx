@@ -6,7 +6,7 @@ import ReactCountryFlag from "react-country-flag"
 
 function HeaderNav() {
 
-    const [locInfo, setLocInfo] = useState(null);
+    const [locInfo, setLocInfo] = useState({status: "success", country: "India", countryCode: "IN", region: "DL"})
 
     useEffect(() => {
             Axios.get('http://ip-api.com/json')
@@ -16,7 +16,7 @@ function HeaderNav() {
             .catch(function (error) {
               console.log(error);
             });
-    }, [locInfo])
+    }, [])
 
 
     return (
@@ -31,7 +31,7 @@ function HeaderNav() {
             </div>
             <div className="header_nav_links">
                 <span className="nav_links_line1"></span>
-                {/* <span className="nav_links_line2"><ReactCountryFlag countryCode={locInfo.countryCode} /></span> */}
+                <span className="nav_links_line2"><ReactCountryFlag countryCode={locInfo.countryCode} /></span>
             </div>
             <div className="header_nav_links">
                 <span className="nav_links_line1"></span>
