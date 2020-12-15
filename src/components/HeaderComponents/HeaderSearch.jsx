@@ -1,4 +1,5 @@
 import React from 'react'
+import SearchIcon from "@material-ui/icons/Search";
 
 function HeaderSearch() {
     return (
@@ -6,7 +7,7 @@ function HeaderSearch() {
             <input
                 className="header_search_input"
             />
-            <button>M</button>
+            <SearchIcon className="header_search_icon" />
         </div>
     )
 }

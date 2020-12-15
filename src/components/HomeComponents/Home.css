@@ -1,0 +1,19 @@
+.home{
+    height: 100%;
+  }
+
+.home_banner{
+    width: 100vw;
+    z-index: -1;
+    margin-bottom:-15vh;
+    mask-image: linear-gradient(rgba(0,0,0,1),rgba(0,0,0,0.7),rgba(0,0,0,0));
+}
+
+.home_row{
+    display: flex;
+    justify-content: space-between;
+    overflow-x: scroll;
+    padding: 1vw 1vw;
+    margin: 3vh 2vw;
+    z-index: 1;
+}
