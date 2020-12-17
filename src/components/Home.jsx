@@ -13,7 +13,7 @@ function Home() {
             <div className="home_row">
                 <Product
                     id="1234"
-                    title='The Ickabog By J.K. Rowlings'
+                    title='The Ickabog By J.K. Rowlings The Ickabog By J.K. Rowlings The Ickabog By J.K. Rowlings The Ickabog By J.K. Rowlings The Ickabog By J.K. Rowlings The Ickabog By J.K. Rowlings The Ickabog By J.K. Rowlings The Ickabog By J.K. Rowlings'
                     imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
                     price={8000}
                     rating={5}
