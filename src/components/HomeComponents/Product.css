@@ -8,7 +8,7 @@
     min-width: 30vw;
     margin: 0px 1vw;
     z-index: 1;
-    padding: 2vh 1vw;
+    padding: 3vh 1vw;
 }
 
 .product_info{
@@ -27,8 +27,8 @@
 }
 
 .product_image{
-    width: 80%;
-    max-height: 30vh;
+    width: 60%;
+    max-height: 25vh;
     object-fit: contain;
     margin: 0px 2vw;
 }
@@ -51,4 +51,9 @@
     border-color: #a88734 #9c7e31 #846a29;
     width: 30%;
     padding: 0.5vh 0.2vw;
+}
+
+.MuiBox-root{
+    padding: 0px !important;
+    border: 0px !important;
 }

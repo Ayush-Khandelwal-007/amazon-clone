@@ -12,45 +12,29 @@ function Home() {
             />
             <div className="home_row">
                 <Product
-                    title='A Ickabog By J.K. Rowlings'
+                    id="1234"
+                    title='The Ickabog By J.K. Rowlings'
                     imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
                     price={8000}
                     rating={5}
                 />
                 <Product
-                    title='A Ickabog By J.K. Rowlings'
+                    id="1235"
+                    title='The Ickabog By J.K. Rowlings'
                     imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
                     price={8000}
                     rating={5}
                 />
                 <Product
-                    title='A Ickabog By J.K. Rowlings'
+                    id="1236"
+                    title='The Ickabog By J.K. Rowlings'
                     imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
                     price={8000}
                     rating={5}
                 />
                 <Product
-                    title='A Ickabog By J.K. Rowlings'
-                    imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
-                    price={8000}
-                    rating={5}
-                />
-            </div>
-            <div className="home_row">
-                <Product
-                    title='A Ickabog By J.K. Rowlings'
-                    imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
-                    price={8000}
-                    rating={5}
-                />
-                <Product
-                    title='A Ickabog By J.K. Rowlings'
-                    imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
-                    price={8000}
-                    rating={5}
-                />
-                <Product
-                    title='A Ickabog By J.K. Rowlings'
+                    id="1237"
+                    title='The Ickabog By J.K. Rowlings'
                     imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
                     price={8000}
                     rating={5}
@@ -58,37 +42,66 @@ function Home() {
             </div>
             <div className="home_row">
                 <Product
-                    title='A Ickabog By J.K. Rowlings'
+                    id="1238"
+                    title='The Ickabog By J.K. Rowlings'
                     imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
                     price={8000}
                     rating={5}
                 />
                 <Product
-                    title='A Ickabog By J.K. Rowlings'
+                    id="1239"
+                    title='The Ickabog By J.K. Rowlings'
                     imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
                     price={8000}
                     rating={5}
                 />
                 <Product
-                    title='A Ickabog By J.K. Rowlings'
+                    id="1240"
+                    title='The Ickabog By J.K. Rowlings'
+                    imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
+                    price={8000}
+                    rating={5}
+                />
+            </div>
+            <div className="home_row">
+                <Product
+                    id="1241"
+                    title='The Ickabog By J.K. Rowlings'
                     imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
                     price={8000}
                     rating={5}
                 />
                 <Product
-                    title='A Ickabog By J.K. Rowlings'
+                    id="1242"
+                    title='The Ickabog By J.K. Rowlings'
                     imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
                     price={8000}
                     rating={5}
                 />
                 <Product
-                    title='A Ickabog By J.K. Rowlings'
+                    id="1243"
+                    title='The Ickabog By J.K. Rowlings'
                     imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
                     price={8000}
                     rating={5}
                 />
                 <Product
-                    title='A Ickabog By J.K. Rowlings'
+                    id="1244"
+                    title='The Ickabog By J.K. Rowlings'
+                    imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
+                    price={8000}
+                    rating={5}
+                />
+                <Product
+                    id="1245"
+                    title='The Ickabog By J.K. Rowlings'
+                    imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
+                    price={8000}
+                    rating={5}
+                />
+                <Product
+                    id="1246"
+                    title='The Ickabog By J.K. Rowlings'
                     imageurl="https://assets.theickabog.com/wp-content/uploads/2020/07/Ickabog_Homepage_Hero_US.jpg"
                     price={8000}
                     rating={5}
