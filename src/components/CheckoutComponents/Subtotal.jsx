@@ -2,7 +2,7 @@ import React from 'react'
 import CurrencyFormat from "react-currency-format"
 // import { useHistory } from "react-router-dom";
 import { useBasket } from '../../contexts/Basket';
-import { getBasketTotal } from '../../contexts/reducer';
+import { getBasketTotal, getBasketTotalQuantity } from '../../contexts/reducer';
 
 function Subtotal() {
 
@@ -16,7 +16,7 @@ function Subtotal() {
         renderText={(value) => (
           <>
             <p>
-              Subtotal ({basket.length} items): <strong>{value}</strong>
+              Subtotal ({getBasketTotalQuantity(basket)} items): <strong>{value}</strong>
             </p>
             <small className="subtotal__gift">
               <input type="checkbox" /> This order contains a gift

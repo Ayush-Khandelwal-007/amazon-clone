@@ -8,6 +8,12 @@ function Product({ id, title, imageurl, price, rating }) {
     const [state, dispatch] = useBasket();
 
     const addToBasket = () => {
+
+        const index = state.basket.findIndex(
+            (basketItem) => basketItem.id === id
+        );
+
+        if(index===-1){
         dispatch({
             type: 'ADD_TO_BASKET',
             item: {
@@ -16,8 +22,16 @@ function Product({ id, title, imageurl, price, rating }) {
                 imageurl: imageurl,
                 price: price,
                 rating: rating,
+                quantity: 1
             }
         })
+        }
+        else{
+            dispatch({
+                type: 'INCREASE_ITEM',
+                id: id,
+            })
+        }
     }
 
     return (

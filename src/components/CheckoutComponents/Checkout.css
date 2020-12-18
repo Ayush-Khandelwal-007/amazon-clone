@@ -129,3 +129,41 @@
     overflow: scroll;
     margin-bottom: 2vh;
 }
+
+.item_info_quantity{
+    background-color: #c7c7c7;
+    height: calc(2vw - 6px);
+    padding: 0.2vh 0.5vw;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+}
+
+.quantity_handle{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+.quantity_handle >button{
+    width: 2vw;
+    height: 2vw;
+    object-fit: contain;
+    background:linear-gradient(#f0c14b,#d4a327);
+    font-size: calc(1vh + 1vw);
+    padding: 1vh;
+    border: 1px solid;
+    border-color: #a88734 #9c7e31 #846a29;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    cursor: pointer;
+}
+
+button:focus{
+    outline: none ;
+}

@@ -16,10 +16,12 @@ function BasketContent() {
                         return(
                             <BasketItem 
                             key={item.id}
+                            id={item.id}
                             title={item.title}
                             imageurl={item.imageurl}
                             price={item.price}
                             rating={item.rating}
+                            quantity={item.quantity}
                         />
                         )
                     })

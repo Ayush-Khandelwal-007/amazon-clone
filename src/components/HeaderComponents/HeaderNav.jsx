@@ -4,10 +4,11 @@ import ReactCountryFlag from "react-country-flag"
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket"
 import { Link } from 'react-router-dom';
 import { useBasket } from '../../contexts/Basket';
+import { getBasketTotalQuantity } from '../../contexts/reducer';
 
 function HeaderNav() {
     // eslint-disable-next-line
-    const [state, dispatch] = useBasket();
+    const [{basket}, dispatch] = useBasket();
 
 
     const [locInfo, setLocInfo] = useState({ status: "success", country: "India", countryCode: "IN", region: "DL" })
@@ -40,7 +41,7 @@ function HeaderNav() {
             <Link to="/checkout">
                 <div className="header_nav_basket">
                     <span className="basket_icon"><ShoppingBasketIcon fontSize="large" /></span>
-                    <span id="no_of_items">{state.basket?.length}</span>
+                    <span id="no_of_items">{getBasketTotalQuantity(basket)}</span>
                 </div>
             </Link>
         </div>

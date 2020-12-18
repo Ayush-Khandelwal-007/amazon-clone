@@ -4,17 +4,38 @@ import React from 'react'
 import { useBasket } from '../../contexts/Basket';
 import DeleteIcon from '@material-ui/icons/Delete'
 
-function BasketItem({ id, title, imageurl, price, rating }) {
+function BasketItem({ id, title, imageurl, price, rating, quantity }) {
 
-    const [{basket}, dispatch] = useBasket();
+    // eslint-disable-next-line
+    const [{ basket }, dispatch] = useBasket();
 
     const removeFromBasket = () => {
         dispatch({
             type: 'REMOVE_FROM_BASKET',
-            item: {
-                id: id,
-            }
+            id: id,
         })
+    }
+
+    const increaseItem = () => {
+        dispatch({
+            type: 'INCREASE_ITEM',
+            id: id,
+        })
+    }
+
+    const decreaseItem = () => {
+        if(quantity===1){
+            dispatch({
+                type: 'REMOVE_FROM_BASKET',
+                id: id,
+            })
+        }
+        else{
+            dispatch({
+                type: 'DECREASE_ITEM',
+                id: id,
+            })
+        }
     }
 
     return (
@@ -30,12 +51,19 @@ function BasketItem({ id, title, imageurl, price, rating }) {
                     <small>₹</small>
                     <strong>{price}</strong>
                 </p>
+                <div className="quantity_handle">
+                    <button onClick={decreaseItem}>-</button>
+                    <p className="item_info_quantity">
+                        {quantity}
+                    </p>
+                    <button onClick={increaseItem}>+</button>
+                </div>
                 <div className="item_info_rating">
                     <Box component="fieldset" mb={3} borderColor="transparent">
                         <Rating name="read-only" value={rating} readOnly />
                     </Box>
                 </div>
-                <button className="remove_button" onClick={removeFromBasket}>Remove <DeleteIcon fontSize="small"/></button>
+                <button className="remove_button" onClick={removeFromBasket}>Remove <DeleteIcon fontSize="small" /></button>
             </div>
         </div>
     )

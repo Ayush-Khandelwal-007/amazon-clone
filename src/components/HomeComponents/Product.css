@@ -52,6 +52,11 @@
     border-color: #a88734 #9c7e31 #846a29;
     width: 30%;
     padding: 0.5vh 0.2vw;
+    cursor: pointer;
+}
+
+.product > button:focus{
+    outline: none;
 }
 
 .MuiBox-root{
