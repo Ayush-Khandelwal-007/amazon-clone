@@ -1,0 +1,70 @@
+.input_field {
+    margin: 0vh 0vw 2vh 0vh;
+    width: 100%;
+    background-color: #befffc;
+    padding: 0.5vh;
+    border-radius: 3px;
+}
+
+.Sign_Up_Input_Fields,
+.Sign_In_Input_Fields {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+}
+
+.Sign_Up_Form,
+.Sign_In_Form {
+    width: 30vw;
+    min-width: 240px;
+    height: min-content;
+    border: 2px solid #000;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 2%;
+    padding: 5vmin 4vmin 4vmin 4vmin;
+    align-items: center;
+}
+
+.SignButt {
+    border: 0;
+    height: 5vh;
+    margin-top: 2vh;
+    color: white;
+    font-size: 2.3vmin;
+    padding: 1vh 0vw;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Google {
+    transform: scale(2);
+    margin-right: 1.5vw;
+}
+
+.Form_M{
+    width:80%;
+    display: flex;
+    justify-content: center
+}
+
+.Change_Form {
+    color: rgb(43, 116, 175);
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .Google {
+        transform: scale(1.6);
+        margin-right: 3vw;
+    }
+    .Form_M{
+        width:90%;
+    }
+}

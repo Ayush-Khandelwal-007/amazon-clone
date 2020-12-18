@@ -70,7 +70,7 @@
     cursor: pointer;
 }
 
-.header_nav_links:nth-last-child(3):hover{
+.header_nav_links:nth-last-child(1):hover{
     border: 1px solid white;
     cursor: pointer;
 }

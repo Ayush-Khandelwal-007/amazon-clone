@@ -5,10 +5,27 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket"
 import { Link } from 'react-router-dom';
 import { useBasket } from '../../contexts/Basket';
 import { getBasketTotalQuantity } from '../../contexts/reducer';
+import { auth } from '../../Firebase';
 
 function HeaderNav() {
     // eslint-disable-next-line
-    const [{basket}, dispatch] = useBasket();
+    const [{ basket }, dispatch] = useBasket();
+
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+      const unsubscribe = auth.onAuthStateChanged((authUser) => {
+        if (authUser) {
+          console.log(authUser);
+          setUser(authUser);
+        } else {
+          setUser(null);
+        }
+      })
+      return () => {
+        unsubscribe();
+      }
+    }, [user])
 
 
     const [locInfo, setLocInfo] = useState({ status: "success", country: "India", countryCode: "IN", region: "DL" })
@@ -30,10 +47,15 @@ function HeaderNav() {
                 <span className="nav_links_line1"></span>
                 <span className="nav_links_line2"><ReactCountryFlag countryCode={locInfo.countryCode} /></span>
             </div>
-            <div className="header_nav_links">
-                <span className="nav_links_line1">Hello guest</span>
-                <span className="nav_links_line2">Sign In</span>
-            </div>
+            <Link to="/signin">
+                <div className="header_nav_links">
+                    <span className="nav_links_line1">Hello 
+                    {
+                        user ? (" "+user.displayName) : (" Guest")
+                    }</span>
+                    <span className="nav_links_line2">Sign In</span>
+                </div>
+            </Link>
             <div className="header_nav_links">
                 <span className="nav_links_line1">Returns</span>
                 <span className="nav_links_line2">& orders</span>

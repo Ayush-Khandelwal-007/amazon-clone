@@ -18,7 +18,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 100% !important;
     padding: 1vh 2vw;
     background-color: white;
 }
@@ -28,7 +27,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    width:50vw;
+    width:40vw;
     min-width: 110px;
     height: 16vh;
     min-height: 110px;
@@ -67,6 +66,7 @@
     .checkout_subtotal{
         height: 8vh;
         min-height: 50px;
+        width:50vw;
     }
     .checkout_subtotal > p{
         font-size: calc(0.2vh + 1.2vw);
@@ -79,7 +79,8 @@
 }
 
 .basket_item_image{
-    max-width: 20vw;
+    max-width: 25vw;
+    min-width: 20vw;
     max-height: 25vh;
     object-fit: contain;
     margin-right: 2vh;
