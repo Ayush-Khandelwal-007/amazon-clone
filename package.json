@@ -11,7 +11,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
     "firebase": "^8.1.2",
-    "firebase-tools": "^8.18.1",
+    "firebase-tools": "^9.0.1",
     "react": "^17.0.1",
     "react-country-flag": "^2.3.0",
     "react-currency-format": "^1.0.0",
