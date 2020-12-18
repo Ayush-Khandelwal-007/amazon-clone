@@ -7,12 +7,11 @@ import reducer, { initialState } from './contexts/reducer';
 import { StateProvider } from './contexts/Basket';
 
 ReactDOM.render(
-  <React.StrictMode>
     <StateProvider initialState={initialState} reducer={reducer} >
       <App />
-    </StateProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    </StateProvider>,
+    document.getElementById('root')
+  
 );
 
 // If you want to start measuring performance in your app, pass a function

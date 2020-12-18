@@ -3,6 +3,7 @@ import './Product.css'
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 import { useBasket } from '../../contexts/Basket';
+import { Link } from 'react-router-dom';
 
 function Product({ id, title, imageurl, price, rating }) {
     const [state, dispatch] = useBasket();
@@ -53,7 +54,14 @@ function Product({ id, title, imageurl, price, rating }) {
                 alt="product_image"
                 className="product_image"
             />
-            <button onClick={addToBasket}>Add to Cart</button>
+            {
+                state.user?(
+                    <button onClick={addToBasket}>Add to Cart</button>
+                ):(
+                    <Link to='/signin'><button className="divert_button" >Add to Cart</button></Link>
+                )
+            }
+            
         </div>
     )
 }

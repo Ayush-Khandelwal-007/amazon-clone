@@ -6,26 +6,29 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-d
 import SignIn from './components/SignIn'
 import SignUp from './components/SignUp'
 import Checkout from './components/Checkout';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { auth } from './Firebase';
+import { useBasket } from './contexts/Basket';
 
 function App() {
-
-  const [user, setUser] = useState({});
+  const [state, dispatch] = useBasket();
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+    auth.onAuthStateChanged((authUser) => {
       if (authUser) {
-        console.log(authUser);
-        setUser(authUser);
+        dispatch({
+          type: "SET_USER",
+          user: authUser,
+        });
       } else {
-        setUser(null);
+        dispatch({
+          type: "SET_USER",
+          user: null,
+        });
       }
-    })
-    return () => {
-      unsubscribe();
-    }
-  }, [user])
+    });
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Router>
@@ -37,13 +40,13 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/checkout">
-          {user ? <Checkout /> : <div className="renderscreen"><SignIn /></div>}
+            {state.user ? <Checkout /> : <div className="renderscreen"><SignIn /></div>}
           </Route>
           <Route exact path="/signin">
-            {user ? <Redirect to="/" /> : <div className="renderscreen"><SignIn /></div>}
+            {state.user ? <Redirect to="/" /> : <div className="renderscreen"><SignIn /></div>}
           </Route>
           <Route exact path="/signup">
-            {user ? <Redirect to="/" /> : <div className="renderscreen"><SignUp /></div>}
+            {state.user ? <Redirect to="/" /> : <div className="renderscreen"><SignUp /></div>}
           </Route>
         </Switch>
       </div>
