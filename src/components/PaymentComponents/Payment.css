@@ -30,13 +30,17 @@
 .payment_section{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-top: 2vh;
 }
 
 .payment_title{
     display: flex;
     width: 25vw;
+}
+
+.payment_details{
+    width: 40%;
 }
 
 .payment_title h4{

@@ -48,10 +48,12 @@ function HeaderNav() {
                 }
 
             </Link>
-            <div className="header_nav_links">
-                <span className="nav_links_line1">Returns</span>
-                <span className="nav_links_line2">& orders</span>
-            </div>
+            <Link to="/orders">
+                <div className="header_nav_links">
+                    <span className="nav_links_line1">Returns</span>
+                    <span className="nav_links_line2">& orders</span>
+                </div>
+            </Link>
             <Link to="/checkout">
                 <div className="header_nav_basket">
                     <span className="basket_icon"><ShoppingBasketIcon fontSize="large" /></span>

@@ -1,0 +1,37 @@
+.orders {
+    padding: 1vh 7vw;
+}
+
+.orders > h1 {
+    margin: 3vh 0;
+}
+
+.order {
+    padding: 3vh 2vw;
+    margin: 3vh 0;
+    border: 1px solid lightgray;
+    background-color: white;
+    position: relative;
+}
+
+.order p{
+    font-size: calc(4px + 0.8vw);
+}
+
+.order h2{
+    font-size: calc(10px + 1vw);
+    margin-bottom: 2vh;
+}
+
+.order h3{
+    font-size: calc(5px + 1vw);
+}
+
+.order__id {
+    float: right;
+  }
+
+.order__total {
+    font-weight: 500;
+    text-align: right;
+  }
