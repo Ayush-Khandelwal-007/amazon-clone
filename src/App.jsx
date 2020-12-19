@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import { auth, db } from './Firebase';
 import { useBasket } from './contexts/Basket';
 import Payment from './pages/Payment';
-// import { loadStripe } from "@stripe/stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Orders from './pages/Orders';
 
@@ -17,27 +17,27 @@ function App() {
 
   const [user, setUser] = useState({});
   const [state, dispatch] = useBasket();
-  // const promise = loadStripe('pk_test_51I00hXLRBbz610XMtuksd3VcGKq0Mn2PPF3W0GicgtgaeSxxHKBFZmJ3aSsGbC5iEuFxpYqyhwsHzCtcLKxO5gxz00GfxNFgzJ');
+  const promise = loadStripe('pk_test_51I00hXLRBbz610XMtuksd3VcGKq0Mn2PPF3W0GicgtgaeSxxHKBFZmJ3aSsGbC5iEuFxpYqyhwsHzCtcLKxO5gxz00GfxNFgzJ');
 
 
-  useEffect(() => {
-    const update = () => {
-      // console.log([...state.basket]);
+  // useEffect(() => {
+  //   const update = () => {
+  //     // console.log([...state.basket]);
 
-      db
-        .collection('users')
-        .doc(user.uid)
-        .set({
-          basket: [...state.basket]
-        })
-    }
-    if (state.basket === []) {
-      console.log("here")
-    }
-    else {
-      update();
-    }
-  }, [state,user]);
+  //     db
+  //       .collection('users')
+  //       .doc(user.uid)
+  //       .set({
+  //         basket: [...state.basket]
+  //       })
+  //   }
+  //   if (state.basket === []) {
+  //     console.log("here")
+  //   }
+  //   else {
+  //     update();
+  //   }
+  // }, [state,user]);
 
 
 
@@ -94,8 +94,7 @@ function App() {
           </Route>
           <Route exact path="/payment">
             {state.user ? (
-              // <Elements stripe={promise} >
-              <Elements>
+              <Elements stripe={promise} >
                 <Payment />
               </Elements>
             ) : <Redirect to="/" />}

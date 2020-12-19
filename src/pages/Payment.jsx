@@ -1,4 +1,5 @@
 import { Input } from '@material-ui/core';
+// eslint-disable-next-line
 import React, { useEffect, useState } from 'react'
 import { useBasket } from '../contexts/Basket';
 import '../components/PaymentComponents/Payment.css'
@@ -10,6 +11,7 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 // import axios from '../components/PaymentComponents/axios';
 import { db } from '../Firebase';
+import firebase from 'firebase';
 
 function Payment() {
 
@@ -73,6 +75,7 @@ function Payment() {
             .doc(user?.uid)
             .collection('orders')
             .add({
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 basket: basket,
                 // amount: paymentIntent.amount,
                 amount:getBasketTotal(basket)*100,

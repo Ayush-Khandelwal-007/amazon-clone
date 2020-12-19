@@ -5,6 +5,7 @@ import { useBasket } from '../contexts/Basket';
 import { db } from '../Firebase';
 
 function Orders() {
+    //eslint-disable-next-line
     const [{ user }, dispatch] = useBasket();
     const [orders, setOrders] = useState([]);
   
@@ -14,7 +15,7 @@ function Orders() {
           .collection('users')
           .doc(user?.uid)
           .collection('orders')
-        //   .orderBy('created', 'desc')
+          .orderBy('timestamp', 'desc')
           .onSnapshot(snapshot => (
               setOrders(snapshot.docs.map(doc => ({
                   id: doc.id,

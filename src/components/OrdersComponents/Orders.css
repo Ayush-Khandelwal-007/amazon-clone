@@ -1,5 +1,6 @@
 .orders {
     padding: 1vh 7vw;
+    height: 100%;
 }
 
 .orders > h1 {
@@ -14,6 +15,11 @@
     position: relative;
 }
 
+.order_info{
+    display: flex;
+    justify-content: space-between;
+}
+
 .order p{
     font-size: calc(4px + 0.8vw);
 }
@@ -26,10 +32,6 @@
 .order h3{
     font-size: calc(5px + 1vw);
 }
-
-.order__id {
-    float: right;
-  }
 
 .order__total {
     font-weight: 500;
