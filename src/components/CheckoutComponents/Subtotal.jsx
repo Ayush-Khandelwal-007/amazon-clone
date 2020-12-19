@@ -1,12 +1,12 @@
 import React from 'react'
 import CurrencyFormat from "react-currency-format"
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useBasket } from '../../contexts/Basket';
 import { getBasketTotal, getBasketTotalQuantity } from '../../contexts/reducer';
 
 function Subtotal() {
 
-  // const history = useHistory();
+  const history = useHistory();
   // eslint-disable-next-line
   const [{ basket }, dispatch] = useBasket();
 
@@ -30,7 +30,7 @@ function Subtotal() {
         prefix={"₹"}
       />
 
-      <button>Proceed to Checkout</button>
+      <button onClick={e => history.push("/payment") }>Proceed to Checkout</button>
     </div>
   )
 }

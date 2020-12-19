@@ -52,11 +52,11 @@ function BasketItem({ id, title, imageurl, price, rating, quantity }) {
                     <strong>{price}</strong>
                 </p>
                 <div className="quantity_handle">
-                    <button onClick={decreaseItem}>-</button>
+                    <div onClick={decreaseItem}>-</div>
                     <p className="item_info_quantity">
                         {quantity}
                     </p>
-                    <button onClick={increaseItem}>+</button>
+                    <div onClick={increaseItem}>+</div>
                 </div>
                 <div className="item_info_rating">
                     <Box component="fieldset" mb={3} borderColor="transparent">

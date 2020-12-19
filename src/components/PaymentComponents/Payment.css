@@ -1,0 +1,89 @@
+.payment{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.payment h1{
+    width: 100%;
+    font-size: calc(9px + 1.8vw);
+    text-align: center;
+    color: #181d23;
+    padding: 1vh 0px;
+    font-weight: 500;
+    background-color: #ffb144;
+    border-bottom: 1px solid lightgray;
+}
+
+.payment h1 a{
+    text-decoration: none;
+    color: #181d23;
+}
+.payment_container{
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 5vw;
+}
+
+.payment_section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2vh;
+}
+
+.payment_title{
+    display: flex;
+    width: 25vw;
+}
+
+.payment_title h4{
+    font-size: calc(5px + 0.7vw);
+}
+
+.payment_address{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment_items .basket_item_info p{
+    font-size: medium;
+}
+
+.payment_items{
+    max-height: 50vh;
+    overflow: scroll;
+    margin-bottom: 2vh;
+}
+
+.payment_address p{
+    font-size: calc(7px + 0.5vw);
+    margin-bottom: 0.5vh;
+}
+
+.input_address{
+    display: flex;
+    flex-direction: column;
+}
+
+.input_address .MuiInputBase-root{
+    height: calc(0.6vh + 1.4vw);
+    width: max-content;
+}
+
+.input_address .MuiInputBase-input{
+    font-size: calc(7px + 0.5vw);;
+}
+
+@media only screen and (max-width: 600px){
+    .payment_address{
+        display: flex;
+        flex-direction: column;
+    }
+    .input_address{
+        margin-top: 2vh;
+    }
+}

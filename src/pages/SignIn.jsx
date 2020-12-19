@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import {auth} from '../Firebase'
 import { Input, Button } from '@material-ui/core';
-import GoogleLogin from './FormsComponents/GoogleLogin';
-import './FormsComponents/Forms.css'
+import GoogleLogin from '../components/FormsComponents/GoogleLogin';
+import '../components/FormsComponents/Forms.css'
 
 const SignIn = () => {
 

@@ -1,7 +1,7 @@
 import React from 'react'
-import BasketContent from './CheckoutComponents/BasketContent'
-import './CheckoutComponents/Checkout.css'
-import Subtotal from './CheckoutComponents/Subtotal'
+import BasketContent from '../components/CheckoutComponents/BasketContent'
+import '../components/CheckoutComponents/Checkout.css'
+import Subtotal from '../components/CheckoutComponents/Subtotal'
 
 function Checkout() {
     return (

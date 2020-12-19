@@ -1,6 +1,6 @@
 import React from 'react'
-import "./HomeComponents/Home.css"
-import Product from './HomeComponents/Product'
+import "../components/HomeComponents/Home.css"
+import Product from '../components/HomeComponents/Product'
 
 function Home() {
     return (

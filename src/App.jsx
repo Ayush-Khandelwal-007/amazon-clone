@@ -1,14 +1,14 @@
 import './App.css';
 import Header from './components/Header';
-import Home from './components/Home';
-// eslint-disable-next-line
+import Home from './pages/Home';
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
-import SignIn from './components/SignIn'
-import SignUp from './components/SignUp'
-import Checkout from './components/Checkout';
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
+import Checkout from './pages/Checkout';
 import { useEffect } from 'react';
 import { auth } from './Firebase';
 import { useBasket } from './contexts/Basket';
+import Payment from './pages/Payment';
 
 function App() {
   const [state, dispatch] = useBasket();
@@ -16,6 +16,7 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
+        // console.log(authUser);
         dispatch({
           type: "SET_USER",
           user: authUser,
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route exact path="/signup">
             {state.user ? <Redirect to="/" /> : <div className="renderscreen"><SignUp /></div>}
+          </Route>
+          <Route exact path="/payment">
+            {state.user ? <Payment/> : <Redirect to="/" /> }
           </Route>
         </Switch>
       </div>

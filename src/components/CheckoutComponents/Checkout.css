@@ -71,6 +71,10 @@
     .checkout_subtotal > p{
         font-size: calc(0.2vh + 1.2vw);
     }
+    .basket_item_image{
+        max-width: 25vw;
+        min-width: 25vw;
+    }
 }
 
 
@@ -79,7 +83,7 @@
 }
 
 .basket_item_image{
-    max-width: 25vw;
+    max-width: 20vw;
     min-width: 20vw;
     max-height: 25vh;
     object-fit: contain;
@@ -125,7 +129,7 @@
 
 .basket_item_info > p{
     font-weight: 600;
-    font-size: calc(1.3vh + 0.6vw);
+    font-size: calc(7px + 0.8vw);
     max-height: 13vh;
     overflow: scroll;
     margin-bottom: 2vh;
@@ -133,38 +137,36 @@
 
 .item_info_quantity{
     background-color: #c7c7c7;
-    height: calc(2vw - 6px);
+    height: 2vh;
+    width: 2vh;
     padding: 0.2vh 0.5vw;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .quantity_handle{
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
 }
 
-.quantity_handle >button{
-    width: 2vw;
-    height: 2vw;
+.quantity_handle div{
+    height: 2vh;
+    width: 2vh;
+    padding: 0.2vh 0.5vw;
     object-fit: contain;
     background:linear-gradient(#f0c14b,#d4a327);
     font-size: calc(1vh + 1vw);
-    padding: 1vh;
     border: 1px solid;
     border-color: #a88734 #9c7e31 #846a29;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 button{
     cursor: pointer;
-}
-
-button:focus{
-    outline: none ;
 }
