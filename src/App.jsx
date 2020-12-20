@@ -20,24 +20,45 @@ function App() {
   const promise = loadStripe('pk_test_51I00hXLRBbz610XMtuksd3VcGKq0Mn2PPF3W0GicgtgaeSxxHKBFZmJ3aSsGbC5iEuFxpYqyhwsHzCtcLKxO5gxz00GfxNFgzJ');
 
 
-  // useEffect(() => {
-  //   const update = () => {
-  //     // console.log([...state.basket]);
+  useEffect(() => {
+    // console.log(state.basket)
+    if(Array.isArray(state.basket) && state.basket.length){
+      auth.onAuthStateChanged((authUser)=>{
+        db
+        .collection('users')
+        .doc(authUser.uid)
+        .set({
+          basket:[...state.basket]
+        })
+      })
+    }
+    else{
+      console.log('here');
+    }
+  }, [state]);
 
-  //     db
-  //       .collection('users')
-  //       .doc(user.uid)
-  //       .set({
-  //         basket: [...state.basket]
-  //       })
-  //   }
-  //   if (state.basket === []) {
-  //     console.log("here")
-  //   }
-  //   else {
-  //     update();
-  //   }
-  // }, [state,user]);
+  useEffect(()=>{
+    // console.log(user?.uid);
+    db
+    .collection('users')
+    .doc(user?.uid)
+    .get()
+    .then(function(doc) {
+      if (doc.exists){        
+        // console.log(doc.data().basket);
+
+        dispatch({
+          type: "SET_BASKET",
+          basket: [...(doc.data().basket)],
+        })
+
+      } else {
+        console.log("No such document!")
+      }}).catch(function(error) {
+        console.log("Error getting document:", error)
+      });
+      // eslint-disable-next-line
+  },[])
 
 
 
@@ -57,17 +78,6 @@ function App() {
         });
       }
     });
-    // let prevBasket = db
-    //   .collection('users')
-    //   .doc(user?.uid)
-    //   .basket;
-    // console.log(prevBasket);
-    // if (prevBasket) {
-    //   dispatch({
-    //     type: "SET_BASKET",
-    //     basket: prevBasket,
-    //   })
-    // }
     // eslint-disable-next-line
   }, []);
 
