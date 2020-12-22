@@ -23,6 +23,7 @@
 }
 .payment_container{
     display: flex;
+    width: 90%;
     flex-direction: column;
     padding: 2vh 5vw;
 }
@@ -30,8 +31,9 @@
 .payment_section{
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
+    /* justify-content: space-around; */
     margin-top: 2vh;
+    min-height: 20vh;
 }
 
 .payment_title{
@@ -40,7 +42,7 @@
 }
 
 .payment_details{
-    width: 40%;
+    width: 60%;
 }
 
 .payment_title h4{
@@ -82,6 +84,15 @@
     font-size: calc(7px + 0.5vw);;
 }
 
+.payment_pricecontainer h3{
+    margin: 3vw 0px;
+    font-size: calc(5px + 0.9vw);
+}
+
+.payment_pricecontainer button{
+    font-size: calc(5px + 0.9vw);
+}
+
 @media only screen and (max-width: 600px){
     .payment_address{
         display: flex;
@@ -89,5 +100,11 @@
     }
     .input_address{
         margin-top: 2vh;
+    }
+    .StripeElement{
+        transform: scale(0.7);
+    }
+    .payment_details{
+        width: 90%;
     }
 }
