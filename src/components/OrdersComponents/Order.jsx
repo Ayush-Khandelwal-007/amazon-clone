@@ -4,12 +4,12 @@ import Rating from '@material-ui/lab/Rating';
 import { Box } from '@material-ui/core';
 
 function Order({ order }) {
-    console.log(order);
+    // console.log(order);
     return (
         <div className='order'>
             <h2>Order</h2>
             <div className="order_info">
-                <p>{String(order.data.timestamp.toDate())}</p>
+                <p>{String(order.data.timestamp?.toDate())}</p>
                 <p className="order__id">
                     <small>{order.id}</small>
                 </p>

@@ -9,6 +9,7 @@ function Orders() {
     const [{ user }, dispatch] = useBasket();
     const [orders, setOrders] = useState([]);
   
+    // console.log(orders);
     useEffect(() => {
       if(user) {
           db
@@ -34,7 +35,7 @@ function Orders() {
   
               <div className='orders__order'>
                   {orders?.map(order => (
-                      <Order order={order} />
+                      <Order key={order.id} order={order} />
                   ))}
               </div>
           </div>
