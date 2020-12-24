@@ -64,9 +64,6 @@ function App() {
         <Header />
 
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
           <Route exact path="/orders">
             {state.user ? <Orders /> : <div className="renderscreen"><SignIn /></div>}
           </Route>
@@ -79,16 +76,15 @@ function App() {
           <Route exact path="/signup">
             {state.user ? <Redirect to="/" /> : <div className="renderscreen"><SignUp /></div>}
           </Route>
-          <Route exact path="/payment">
-            {state.user ? (
-              // <Elements stripe={promise} >
-                <Payment />
-              // </Elements>
-            ) : <Redirect to="/" />}
+          <Route exact path="/payment" >
+          {state.user ? <Payment /> : <div className="renderscreen"><SignUp /></div>}
+          </Route>
+          <Route path="/">
+            <Home />
           </Route>
         </Switch>
       </div>
-    </Router>
+    </Router >
   );
 }
 

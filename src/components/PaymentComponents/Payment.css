@@ -85,12 +85,22 @@
 }
 
 .payment_pricecontainer h3{
-    margin: 3vw 0px;
+    margin-bottom: 2vw;
     font-size: calc(5px + 0.9vw);
 }
 
-.payment_pricecontainer button{
-    font-size: calc(5px + 0.9vw);
+.StripeCheckout {
+    background: none !important;
+    background-color: #dd9f11 !important;
+}
+
+.StripeCheckout span{
+    background-image: none !important;
+    font-size: calc(5px + 0.7vw) !important;
+    color: black !important;
+    font-weight: 500 !important;
+    padding: 0vw 3vw !important;
+
 }
 
 @media only screen and (max-width: 600px){

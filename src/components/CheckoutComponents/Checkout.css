@@ -129,7 +129,7 @@
 
 .basket_item_info > p{
     font-weight: 600;
-    font-size: calc(7px + 0.8vw);
+    font-size: calc(3px + 0.8vw);
     max-height: 13vh;
     overflow: scroll;
     margin-bottom: 2vh;
@@ -137,6 +137,7 @@
 
 .item_info_quantity{
     background-color: #c7c7c7;
+    font-size: calc(7px + 0.4vw);
     height: 2vw;
     width: 2vw;
     border-top: 1px solid black;
@@ -165,6 +166,12 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 button{

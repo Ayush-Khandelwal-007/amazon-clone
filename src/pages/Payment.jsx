@@ -98,10 +98,11 @@ function Payment() {
                     </div>
                     <div className="payment_items">
                         {
-                            basket?.map((item) => {
+                            basket?.map((item, index) => {
                                 return (
                                     <div key={item.id}>
                                         <BasketItem
+                                            index={index}
                                             id={item.id}
                                             title={item.title}
                                             imageurl={item.imageurl}
@@ -137,7 +138,7 @@ function Payment() {
                                 stripeKey="pk_test_51I00hXLRBbz610XMtuksd3VcGKq0Mn2PPF3W0GicgtgaeSxxHKBFZmJ3aSsGbC5iEuFxpYqyhwsHzCtcLKxO5gxz00GfxNFgzJ"
                                 token={handleToken}
                                 amount={getBasketTotal(basket) * 100}
-                                currency='inr'
+                                currency='INR'
                                 billingAddress
                                 shippingAddress
                             />
