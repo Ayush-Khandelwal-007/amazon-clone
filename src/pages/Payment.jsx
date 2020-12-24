@@ -6,70 +6,31 @@ import '../components/PaymentComponents/Payment.css'
 import BasketItem from '../components/CheckoutComponents/BasketItem';
 import { getBasketTotal, getBasketTotalQuantity } from '../contexts/reducer';
 import { Link, useHistory } from 'react-router-dom';
-// eslint-disable-next-line
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
-// import axios from '../components/PaymentComponents/axios';
-import { db } from '../Firebase';
+import StripeCheckout from "react-stripe-checkout";
+import axios from '../components/PaymentComponents/axios';
+import { auth, db } from '../Firebase';
 import firebase from 'firebase';
 
 function Payment() {
 
     const [{ basket, user }, dispatch] = useBasket();
 
-    // const stripe = useStripe();
-    // const elements = useElements();
-
     const history = useHistory();
-    const [error, setError] = useState(null);
-    const [disabled, setDisabled] = useState(true);
-    const [succeeded, setSucceeded] = useState(false);
-    const [processing, setProcessing] = useState("");
 
-    // const [clientSecret, setClientSecret] = useState(true);
+    async function handleToken(token, addresses) {
+        const response = await axios.post(
+            "https://5l5il.sse.codesandbox.io/checkout",
+            { token, price: getBasketTotal(basket) }
+        );
+        const { status } = response.data;
+        console.log("Response:", response.data);
+        if (status === "success") {
+            console.log("Payment Succesfull");
+        } else {
+            console.log("Payment Failed");
+        }
 
-    // useEffect(() => {
-
-    //     const getClientSecret = async () => {
-    //         const response = await axios({
-    //             method: 'post',
-    //             url: `/payments/create?total=${getBasketTotal(basket) * 100}`
-    //         });
-    //         setClientSecret(response.data.clientSecret)
-    //     }
-
-    //     getClientSecret();
-    // }, [basket])
-
-    const submitFunction = async (e) => {
-        e.preventDefault();
-        setProcessing(true);
-
-        // const payload = await stripe.confirmCardPayment(clientSecret, {
-        //     payment_method: elements.getElement(CardElement)
-        // }).then(({ paymentIntent }) => {
-
-        //     db
-        //       .collection('users')
-        //       .doc(user?.uid)
-        //       .collection('orders')
-        //       .doc(paymentIntent.id)
-        //       .set({
-        //           basket: basket,
-        //           amount: paymentIntent.amount,
-        //           created: paymentIntent.created
-        //       })
-
-        //     setSucceeded(true);
-        //     setError(null)
-        //     setProcessing(false)
-
-        //     dispatch({
-        //         type: 'EMPTY_BASKET'
-        //     })
-
-        //     history.replace('/orders')
-        // })
         db
             .collection('users')
             .doc(user?.uid)
@@ -77,25 +38,21 @@ function Payment() {
             .add({
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 basket: basket,
-                // amount: paymentIntent.amount,
-                amount:getBasketTotal(basket)*100,
-                // created: paymentIntent.created
-                created:true,
+                amount: getBasketTotal(basket) * 100,
             })
-        setSucceeded(true);
-        setError(null)
-        setProcessing(false)
 
         dispatch({
             type: 'EMPTY_BASKET'
         })
 
-        history.replace('/orders')
-    }
+        db
+            .collection('users')
+            .doc(auth.currentUser.uid)
+            .set({
+                basket: []
+            });
 
-    const handleChange = (e) => {
-        setDisabled(e.empty);
-        setError(e.error ? e.error.message : "");
+        history.replace('/orders')
     }
 
     const [house, setHouse] = useState('');
@@ -165,26 +122,26 @@ function Payment() {
                         <h4>Payment Methods</h4>
                     </div>
                     <div className="payment_details">
-                        <form onSubmit={submitFunction}>
-                            <CardElement onChange={handleChange} />
-
-                            <div className="payment_pricecontainer">
-                                <CurrencyFormat
-                                    renderText={(value) => (
-                                        <h3>Order Total: {value}</h3>
-                                    )}
-                                    decimalScale={2}
-                                    value={getBasketTotal(basket)}
-                                    displayType={"text"}
-                                    thousandSeparator={true}
-                                    prefix={"₹"}
-                                />
-                                <button disabled={processing || disabled || succeeded}>
-                                    <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
-                                </button>
-                                {error && <div>{error}</div>}
-                            </div>
-                        </form>
+                        <div className="payment_pricecontainer">
+                            <CurrencyFormat
+                                renderText={(value) => (
+                                    <h3>Order Total: {value}</h3>
+                                )}
+                                decimalScale={2}
+                                value={getBasketTotal(basket)}
+                                displayType={"text"}
+                                thousandSeparator={true}
+                                prefix={"₹"}
+                            />
+                            <StripeCheckout
+                                stripeKey="pk_test_51I00hXLRBbz610XMtuksd3VcGKq0Mn2PPF3W0GicgtgaeSxxHKBFZmJ3aSsGbC5iEuFxpYqyhwsHzCtcLKxO5gxz00GfxNFgzJ"
+                                token={handleToken}
+                                amount={getBasketTotal(basket) * 100}
+                                currency='inr'
+                                billingAddress
+                                shippingAddress
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

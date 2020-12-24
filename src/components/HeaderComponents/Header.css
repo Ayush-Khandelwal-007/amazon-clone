@@ -1,5 +1,6 @@
 .header{
     height: 4vw;
+    min-height: 50px;
     background-color: #161b22;
     padding: 0.2vh 1vw;
     display: flex;
@@ -27,8 +28,9 @@
 }
 
 .header_search_input{
-    height: inherit;
-    width: 95%;
+    height: 80%;
+    border: none;
+    width: 100%;
     border-radius: 8px 0px 0px 8px;
 }
 
@@ -37,8 +39,11 @@
 }
 
 .header_search_icon{
-    padding:1.5px 5px;
-    height: inherit !important;
+    height: max-content;
+    padding: 0.2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #ffb757;
     color: #313130;
     border-radius: 0px 8px 8px 0px;
@@ -78,11 +83,11 @@
 }
 
 .nav_links_line1{
-    font-size: calc(7px + 0.2vw);
+    font-size: calc(3px + 0.5vw);
 }
 
 .nav_links_line2{
-    font-size: calc(7px + 0.7vw);
+    font-size: calc(3px + 0.9vw);
     font-weight: 800;
 }
 
@@ -106,13 +111,32 @@
 
 @media only screen and (max-width: 600px){
     .header_nav_basket{
-        transform: scale(0.7);
+        transform: scale(0.5);
     }
+    .header_search_icon{
+        transform: scale(0.7);
+        position: relative;
+        right: 1vw;
+    }
+
+    .header_logo{
+        width: 7vw;
+        min-width: 45px;
+        padding: 4px 0 0 4px;
+    }
+    
     .header{
         height: 10vw;
+        min-height: 20px;
+    }
+    .header_search_input{
+    border-radius: 4px 0px 0px 4px;
     }
     .nav_links_line2{
         display: flex;
         align-self: center;
+    }
+    .header_nav_links{
+        padding: 0.5vh 0.3vw;
     }
 }

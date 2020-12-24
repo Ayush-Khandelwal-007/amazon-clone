@@ -3,8 +3,9 @@ import Rating from '@material-ui/lab/Rating'
 import React from 'react'
 import { useBasket } from '../../contexts/Basket';
 import DeleteIcon from '@material-ui/icons/Delete'
+import { auth, db } from '../../Firebase';
 
-function BasketItem({ id, title, imageurl, price, rating, quantity }) {
+function BasketItem({ index, id, title, imageurl, price, rating, quantity }) {
 
     // eslint-disable-next-line
     const [{ basket }, dispatch] = useBasket();
@@ -13,28 +14,43 @@ function BasketItem({ id, title, imageurl, price, rating, quantity }) {
         dispatch({
             type: 'REMOVE_FROM_BASKET',
             id: id,
-        })
+        });
+        db
+            .collection('users')
+            .doc(auth.currentUser.uid)
+            .set({
+                basket: [...basket.slice(0, index), ...basket.slice(index + 1)]
+            });
     }
 
     const increaseItem = () => {
         dispatch({
             type: 'INCREASE_ITEM',
             id: id,
-        })
+        });
+        db
+            .collection('users')
+            .doc(auth.currentUser.uid)
+            .set({
+                basket: [...basket.slice(0, index), { ...basket[index], quantity: basket[index].quantity + 1 }, ...basket.slice(index + 1)]
+            });
     }
 
     const decreaseItem = () => {
-        if(quantity===1){
-            dispatch({
-                type: 'REMOVE_FROM_BASKET',
-                id: id,
-            })
+        if (quantity === 1) {
+            removeFromBasket();
         }
-        else{
+        else {
             dispatch({
                 type: 'DECREASE_ITEM',
                 id: id,
-            })
+            });
+            db
+                .collection('users')
+                .doc(auth.currentUser.uid)
+                .set({
+                    basket: [...basket.slice(0, index), { ...basket[index], quantity: basket[index].quantity - 1 }, ...basket.slice(index + 1)]
+                });
         }
     }
 

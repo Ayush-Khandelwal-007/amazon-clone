@@ -137,9 +137,8 @@
 
 .item_info_quantity{
     background-color: #c7c7c7;
-    height: 2vh;
-    width: 2vh;
-    padding: 0.2vh 0.5vw;
+    height: 2vw;
+    width: 2vw;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     display: flex;
@@ -150,12 +149,13 @@
 .quantity_handle{
     display: flex;
     align-items: center;
+    height: 2vw;
 }
 
 .quantity_handle div{
-    height: 2vh;
-    width: 2vh;
-    padding: 0.2vh 0.5vw;
+    height: 2vw;
+    width: 2vw;
+    /* padding: 0vh 0.5vw; */
     object-fit: contain;
     background:linear-gradient(#f0c14b,#d4a327);
     font-size: calc(1vh + 1vw);

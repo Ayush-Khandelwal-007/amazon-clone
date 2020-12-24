@@ -12,10 +12,11 @@ function BasketContent() {
             <h1 className="checkout_title">Items in your Cart</h1>
             <div className="basketitems">
                 {
-                    state.basket?.map((item)=>{
+                    state.basket?.map((item,index)=>{
                         return(
                             <BasketItem 
                             key={item.id}
+                            index={index}
                             id={item.id}
                             title={item.title}
                             imageurl={item.imageurl}

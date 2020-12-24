@@ -7,7 +7,7 @@ function HeaderSearch() {
             <input
                 className="header_search_input"
             />
-            <SearchIcon className="header_search_icon" />
+            <div className="header_search_icon" ><SearchIcon fontSize='large' /></div>
         </div>
     )
 }

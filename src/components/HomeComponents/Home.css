@@ -5,7 +5,7 @@
 .home_banner{
     width: 100vw;
     z-index: -1;
-    margin-bottom:-15vh;
+    margin-bottom:-15vw;
     mask-image: linear-gradient(rgba(0,0,0,1),rgba(0,0,0,0.7),rgba(0,0,0,0));
 }
 

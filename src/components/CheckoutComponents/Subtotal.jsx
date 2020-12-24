@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CurrencyFormat from "react-currency-format"
 import { useHistory } from "react-router-dom";
 import { useBasket } from '../../contexts/Basket';
@@ -9,6 +9,16 @@ function Subtotal() {
   const history = useHistory();
   // eslint-disable-next-line
   const [{ basket }, dispatch] = useBasket();
+  const [disabled, setDisabled] = useState(true)
+
+  useEffect(() => {
+    if(getBasketTotalQuantity(basket)>0){
+      setDisabled(false);
+    }
+    else{
+      setDisabled(true);
+    }
+  }, [basket])
 
   return (
     <div className="checkout_subtotal">
@@ -30,7 +40,7 @@ function Subtotal() {
         prefix={"₹"}
       />
 
-      <button onClick={e => history.push("/payment") }>Proceed to Checkout</button>
+      <button disabled={disabled} onClick={e => history.push("/payment") }>Proceed to Checkout</button>
     </div>
   )
 }
